@@ -3,6 +3,7 @@ package pl.dawidgorecki.restservice.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import pl.dawidgorecki.restservice.dto.CreateTaskDTO;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -37,5 +38,11 @@ public class Task {
         this.name = name;
         this.description = description;
         this.deadline = deadline;
+    }
+
+    public Task(CreateTaskDTO createTaskDTO) {
+        name = createTaskDTO.getName();
+        description = createTaskDTO.getDescription();
+        deadline = createTaskDTO.getDeadline();
     }
 }
