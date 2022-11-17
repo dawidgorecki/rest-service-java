@@ -37,7 +37,7 @@ Value: secret_key
 
 ## API methods
 
-Create task  
+### Create task  
 `POST http://localhost:8080/api/v1/tasks`
 ```json
 {
@@ -46,16 +46,16 @@ Create task
     "deadline": "2022-12-12"
 }
 ```
-Get all tasks  
+### Get all tasks  
 `GET http://localhost:8080/api/v1/tasks`
 
-Get all with paging and sorting  
+### Get all with paging and sorting  
 `GET http://localhost:8080/api/v1/tasks?page=0&size=2&sort=id,desc`
 
-Get one task with specified ID  
+### Get one task with specified ID  
 `GET http://localhost:8080/api/v1/tasks/5`
 
-Update task  
+### Update task  
 `PUT http://localhost:8080/api/v1/tasks/1`
 ```json
 {
@@ -65,8 +65,8 @@ Update task
 }
 ```
 
-Delete task  
+### Delete task  
 `DELETE http://localhost:8080/api/v1/tasks/1`
 
-Mark as done  
+### Mark as done  
 `PATCH http://localhost:8080/api/v1/tasks/1`
