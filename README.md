@@ -38,7 +38,9 @@ Value: secret_key
 ## API methods
 
 ### Create task  
-`POST http://localhost:8080/api/v1/tasks`
+```
+POST http://localhost:8080/api/v1/tasks
+```
 ```json
 {
     "name": "My task",
@@ -47,16 +49,24 @@ Value: secret_key
 }
 ```
 ### Get all tasks  
-`GET http://localhost:8080/api/v1/tasks`
+```
+GET http://localhost:8080/api/v1/tasks
+```
 
 ### Get all with paging and sorting  
-`GET http://localhost:8080/api/v1/tasks?page=0&size=2&sort=id,desc`
+```
+GET http://localhost:8080/api/v1/tasks?page=0&size=2&sort=id,desc
+```
 
 ### Get one task with specified ID  
-`GET http://localhost:8080/api/v1/tasks/5`
+```
+GET http://localhost:8080/api/v1/tasks/5
+```
 
 ### Update task  
-`PUT http://localhost:8080/api/v1/tasks/1`
+```
+PUT http://localhost:8080/api/v1/tasks/1
+```
 ```json
 {
     "name": "My updated task",
@@ -66,7 +76,11 @@ Value: secret_key
 ```
 
 ### Delete task  
-`DELETE http://localhost:8080/api/v1/tasks/1`
+```
+DELETE http://localhost:8080/api/v1/tasks/1
+```
 
 ### Mark as done  
-`PATCH http://localhost:8080/api/v1/tasks/1`
+```
+PATCH http://localhost:8080/api/v1/tasks/1
+```
