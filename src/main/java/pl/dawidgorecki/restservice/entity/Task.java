@@ -43,6 +43,6 @@ public class Task {
     public Task(CreateTaskDTO createTaskDTO) {
         name = createTaskDTO.getName();
         description = createTaskDTO.getDescription();
-        deadline = createTaskDTO.getDeadline();
+        deadline = LocalDate.parse(createTaskDTO.getDeadline());
     }
 }
