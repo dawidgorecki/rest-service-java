@@ -2,6 +2,8 @@ package pl.dawidgorecki.restservice.service;
 
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Service;
 import pl.dawidgorecki.restservice.dto.CreateTaskDTO;
 import pl.dawidgorecki.restservice.dto.TaskDTO;
@@ -22,8 +24,8 @@ public class TaskService implements TaskCrud {
     private final ModelMapper mapper;
 
     @Override
-    public List<TaskDTO> getAllTasks() {
-        return taskRepository.findAll().stream()
+    public List<TaskDTO> getAllTasks(@PageableDefault(value = 20, page = 0) Pageable pageable) {
+        return taskRepository.findAll(pageable).stream()
                 .map(task -> mapper.map(task, TaskDTO.class))
                 .collect(Collectors.toList());
     }

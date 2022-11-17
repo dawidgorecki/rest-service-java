@@ -2,6 +2,7 @@ package pl.dawidgorecki.restservice.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -34,9 +35,9 @@ public class TaskController {
     }
 
     @GetMapping(path = "/tasks", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-    public ResponseEntity<List<TaskDTO>> findAll() {
+    public ResponseEntity<List<TaskDTO>> findAll(Pageable pageable) {
         logger.info("Getting all tasks");
-        return ResponseEntity.ok(taskService.getAllTasks());
+        return ResponseEntity.ok(taskService.getAllTasks(pageable));
     }
 
     @GetMapping(path = "/tasks/{id}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})

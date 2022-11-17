@@ -1,5 +1,6 @@
 package pl.dawidgorecki.restservice.service;
 
+import org.springframework.data.domain.Pageable;
 import pl.dawidgorecki.restservice.dto.CreateTaskDTO;
 import pl.dawidgorecki.restservice.dto.TaskDTO;
 import pl.dawidgorecki.restservice.dto.UpdateTaskDTO;
@@ -9,7 +10,7 @@ import java.util.Optional;
 
 public interface TaskCrud {
 
-    List<TaskDTO> getAllTasks();
+    List<TaskDTO> getAllTasks(Pageable pageable);
 
     Optional<TaskDTO> findById(int id);
 
