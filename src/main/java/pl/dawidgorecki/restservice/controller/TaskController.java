@@ -29,6 +29,10 @@ public class TaskController {
         this.taskService = taskService;
     }
 
+    private void logNotFound(int id) {
+        logger.info("Task with id {} not found", id);
+    }
+
     @GetMapping(path = "/tasks", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public ResponseEntity<List<TaskDTO>> findAll() {
         logger.info("Getting all tasks");
@@ -41,7 +45,7 @@ public class TaskController {
         Optional<TaskDTO> task = taskService.findById(id);
 
         if (task.isEmpty()) {
-            logger.info("Task with id {} not found", id);
+            logNotFound(id);
         }
 
         return ResponseEntity.of(task);
@@ -65,7 +69,7 @@ public class TaskController {
             return ResponseEntity.noContent().build();
         }
 
-        logger.info("Task with id {} not found", id);
+        logNotFound(id);
         return ResponseEntity.notFound().build();
     }
 
@@ -75,7 +79,7 @@ public class TaskController {
         Optional<TaskDTO> updatedTask = taskService.updateTask(id, updateTaskDTO);
 
         if (updatedTask.isEmpty()) {
-            logger.info("Task with id {} not found", id);
+            logNotFound(id);
         }
 
         return ResponseEntity.of(updatedTask);
@@ -88,7 +92,7 @@ public class TaskController {
             return ResponseEntity.noContent().build();
         }
 
-        logger.info("Task with id {} not found", id);
+        logNotFound(id);
         return ResponseEntity.notFound().build();
     }
 }
